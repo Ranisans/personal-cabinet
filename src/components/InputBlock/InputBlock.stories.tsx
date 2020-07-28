@@ -16,6 +16,7 @@ export const Default: React.FC = () => {
         label="test"
         className="testClass"
         value={value}
+        placeholder="placeholder"
         callback={setValue}
       />
     </div>
