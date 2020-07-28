@@ -3,6 +3,10 @@
 .contact_row {
   display: flex;
   position: relative;
+  width: fit-content;
+  border-radius: 15px;
+  border: 1px solid grey;
+  overflow: hidden;
 
   &-element {
     height: 40px;
@@ -10,10 +14,55 @@
     padding: 10px;
     background-color: $textColor;
   }
-  &-first_name{
-    border-radius: 15px 0 0 15px;
+  
+  &-element {
+    border-right: 1px solid gray;
+    text-align: center;
+  }
+  &-element:nth-child(5) {
+    border-right: none;
+  }
+  &-first_name {
+    width: 150px;
+  }
+  &-last_name {
+    width: 150px;
+  }
+  &-address {
+    width: 220px;
+  }
+  &-email {
+    width: 180px;
   }
   &-phone {
-    border-radius: 0 15px 15px 0;
+    width: 150px;
   }
+
+  &-icon {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+    background-color: #b9b8b8;
+    opacity: 0;
+    transition: opacity cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.8s ;
+  }
+  &-delete {
+    right: 0;
+    background-image: url('../../assets/img/trash.svg');
+    filter: invert(6%) sepia(87%) saturate(6707%) hue-rotate(0deg) brightness(105%) contrast(105%);
+  }
+  &-edit {
+    left: 0;
+    background-image: url('../../assets/img/pencil.svg');
+    filter: invert(27%) sepia(99%) saturate(1615%) hue-rotate(126deg) brightness(92%) contrast(97%);
+  }
+  &:hover &-icon {
+    opacity: 1;
+  }
+
 }

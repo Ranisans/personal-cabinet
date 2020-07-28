@@ -40,7 +40,7 @@ const ContactRow: React.FC<CRProps> = ({
         {contactData.phone}
       </div>
       <div
-        className="contact_row-delete"
+        className="contact_row-delete contact_row-icon"
         onClick={deleteHandler}
         onKeyDown={deleteHandler}
         role="button"
@@ -48,7 +48,7 @@ const ContactRow: React.FC<CRProps> = ({
         aria-label="delete"
       />
       <div
-        className="contact_row-edit"
+        className="contact_row-edit contact_row-icon"
         onClick={editHandler}
         onKeyDown={editHandler}
         role="button"
