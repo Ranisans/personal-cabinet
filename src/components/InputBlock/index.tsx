@@ -7,6 +7,7 @@ export interface IBProps {
   label: string;
   value: string;
   placeholder: string;
+  isPassword?: boolean;
   callback: (value: string) => void;
 }
 
@@ -15,12 +16,13 @@ const InputBlock: React.FC<IBProps> = ({
   label,
   value,
   placeholder,
+  isPassword,
   callback,
 }: IBProps) => (
   <div className={`input_block ${className}`}>
     <label className="input_block-label">{label}</label>
     <input
-      type="text"
+      type={isPassword ? "password" : "text"}
       value={value}
       placeholder={placeholder}
       className="input_block-input"
