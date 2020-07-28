@@ -1,0 +1,12 @@
+.input_block {
+  display: flex;
+  flex-direction: column;
+
+  &-label {
+    text-transform: uppercase;
+  }
+
+  &-input {
+    text-align: center;
+  }
+}
