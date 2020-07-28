@@ -29,6 +29,7 @@ const InputBlock: React.FC<IBProps> = ({
       onChange={(e: React.FormEvent<HTMLInputElement>): void => {
         callback(e.currentTarget.value);
       }}
+      required
     />
   </div>
 );
