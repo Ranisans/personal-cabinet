@@ -1,4 +1,5 @@
 {
   "rowHeight": 40,
-  "viewportHeight": 500
+  "viewportHeight": 500,
+  "connectUrl": "https://localhost:3001"
 }
