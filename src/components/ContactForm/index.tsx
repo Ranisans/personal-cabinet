@@ -5,7 +5,7 @@ import { ContactProps } from "../../contactType";
 
 export interface CFProps {
   callback: (data: ContactProps) => void;
-  contactData?: ContactProps;
+  contactData: ContactProps | null;
 }
 
 const ContactForm: React.FC<CFProps> = ({ callback, contactData }: CFProps) => {

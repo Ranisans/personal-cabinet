@@ -15,7 +15,7 @@ export const AddNewRecord: React.FC = () => {
     console.log(data);
   };
 
-  return <ContactForm callback={callback} />;
+  return <ContactForm callback={callback} contactData={null} />;
 };
 
 export const UpdateRecord: React.FC = () => {
