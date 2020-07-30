@@ -47,4 +47,14 @@ const deleteContact = (
   return contacts;
 };
 
-export { loadContacts, filterContact, deleteContact };
+const updateContact = (
+  contacts: ContactProps[],
+  record: ContactProps,
+  index: number
+): ContactProps[] => {
+  const clonedContacts = cloneContacts(contacts);
+  clonedContacts[index] = record;
+  return clonedContacts;
+};
+
+export { loadContacts, filterContact, deleteContact, updateContact };

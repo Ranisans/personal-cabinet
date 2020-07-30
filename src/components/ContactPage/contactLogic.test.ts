@@ -1,4 +1,4 @@
-import { filterContact, deleteContact } from "./contactLogic";
+import { filterContact, deleteContact, updateContact } from "./contactLogic";
 
 import { contacts } from "../../db.json";
 
@@ -34,5 +34,18 @@ describe("delete logic", () => {
     const index = 10;
     const result = deleteContact(testData, index);
     expect(result).toEqual(testData);
+  });
+});
+
+describe("update record logic", () => {
+  it("return updated array with record on true position", () => {
+    const index = 1;
+    const editedRecord = { ...testData[index] };
+    editedRecord.firstName = "Jhon";
+    editedRecord.lastName = "Malkovich";
+    const result = updateContact(testData, editedRecord, index);
+    expect(editedRecord).toEqual(result[index]);
+    expect(testData[index]).not.toEqual(result[index]);
+    expect(testData).not.toContain(result[index]);
   });
 });
