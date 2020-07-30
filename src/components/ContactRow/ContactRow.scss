@@ -1,26 +1,32 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .contact_row {
-  display: flex;
   position: relative;
-  width: fit-content;
-  border-radius: 15px;
-  border: 1px solid grey;
+
+  display: flex;
   overflow: hidden;
 
+  width: fit-content;
+
+  border: 1px solid grey;
+  border-radius: 15px;
+
   &-element {
-    height: 40px;
     box-sizing: border-box;
+    height: 40px;
     padding: 10px;
+
     background-color: $textColor;
   }
-  
+
   &-element {
-    border-right: 1px solid gray;
-    text-align: center;
-    text-overflow: ellipsis;
     overflow: hidden;
+
+    border-right: 1px solid gray;
+
+    text-align: center;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
   &-element:nth-child(5) {
     border-right: none;
@@ -44,28 +50,34 @@
   &-icon {
     position: absolute;
     top: 0;
+
     width: 40px;
     height: 40px;
-    background-size: 80% 80%;
-    background-repeat: no-repeat;
-    background-position: center;
+
+    opacity: 0;
     outline: none;
     background-color: #b9b8b8;
-    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80% 80%;
+
     transition: opacity ease-in 0.5s ;
   }
   &-delete {
     right: 0;
-    background-image: url('../../assets/img/trash.svg');
+
+    background-image: url("../../assets/img/trash.svg");
+
     filter: invert(6%) sepia(87%) saturate(6707%) hue-rotate(0deg) brightness(105%) contrast(105%);
   }
   &-edit {
     left: 0;
-    background-image: url('../../assets/img/pencil.svg');
+
+    background-image: url("../../assets/img/pencil.svg");
+
     filter: invert(27%) sepia(99%) saturate(1615%) hue-rotate(126deg) brightness(92%) contrast(97%);
   }
   &:hover &-icon {
     opacity: 1;
   }
-
 }

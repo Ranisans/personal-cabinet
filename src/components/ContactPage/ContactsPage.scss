@@ -1,33 +1,39 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .contact_page {
   position: relative;
+
   overflow: hidden;
+
   width: 100%;
   height: 100%;
 
   &-container {
-    width: fit-content;
     position: relative;
+
+    width: fit-content;
     min-width: 850px;
     margin: 0 auto;
   }
   &-form_container {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: $backgroundColor;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
+
+    background-color: $backgroundColor;
 
     transition: all 0.45s ease-in-out;
     transform: translateY(0);
 
-    &--hidden{
+    &--hidden {
       transform: translateY(-100%);
     }
   }
@@ -35,18 +41,24 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    justify-self: self-start;
-    font-size: 1.5rem;
-    font-weight: 700;
     z-index: 101;
-    text-align: center;
-    color: $textColor;
+
     display: flex;
-    background-color: $backgroundColor;
     flex-direction: column;
     justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    color: $textColor;
+    background-color: $backgroundColor;
+
+    text-align: center;
+
+    justify-self: self-start;
 
     p {
       padding: 0 30%;
@@ -56,10 +68,12 @@
 
 .close {
   position: absolute;
-  right: 32px;
   top: 32px;
+  right: 32px;
+
   width: 32px;
   height: 32px;
+
   opacity: 0.3;
 
   &:hover {
@@ -68,10 +82,13 @@
   &:before, &:after {
     position: absolute;
     left: 15px;
-    content: ' ';
-    height: 33px;
+
     width: 2px;
+    height: 33px;
+
     background-color: $textColor;
+
+    content: " ";
   }
   &:before {
     transform: rotate(45deg);

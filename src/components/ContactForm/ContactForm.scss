@@ -1,19 +1,22 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .contact_form {
   max-width: max-content;
   margin: 0 auto;
   &-input_container {
     display: flex;
-    
+
     label {
-      color: $textColor;
       font-size: 0.9rem;
+
+      color: $textColor;
     }
     input {
-      border-radius: 8px;
       height: 25px;
+
       font-size: 0.9rem;
+
+      border-radius: 8px;
     }
     .input_block {
       margin-right: 5px;
@@ -39,9 +42,10 @@
     width: 150px;
   }
   &-submit {
-    margin-top: 10px;
     width: 80px;
     height: 35px;
+    margin-top: 10px;
+
     border-radius: 8px;
 
     &:hover {

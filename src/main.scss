@@ -1,12 +1,14 @@
-@import './assets/scss/variables';
+@import "./assets/scss/variables";
 
 html, body {
-  height: 100%;
   overflow: hidden;
+
+  height: 100%;
   margin: 0;
 }
 
 #root {
   height: 100%;
+
   background-color: $backgroundColor;
 }

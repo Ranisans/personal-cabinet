@@ -1,17 +1,19 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .login_page {
-  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  height: 90%;
   &-container {
     max-width: 250px;
     margin: 0 auto;
   }
   &-title {
-    text-align: center;
     color: $textColor;
+
+    text-align: center;
   }
   &-data {
     color: $labelColor;

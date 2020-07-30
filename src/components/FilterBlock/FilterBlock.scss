@@ -1,16 +1,19 @@
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .filter_block {
   &-label {
-    color: $textColor;
     font-size: 1.2rem;
     font-weight: 700;
+
+    color: $textColor;
   }
   &-input {
-    font-size: 1.1rem;
-    border-radius: 10px;
+    width: 180px;
     height: 25px;
     padding: 0 7px;
-    width: 180px;
+
+    font-size: 1.1rem;
+
+    border-radius: 10px;
   }
 }
