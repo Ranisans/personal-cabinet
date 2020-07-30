@@ -1,18 +1,34 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 
 import LoginPage from "./components/LoginPage";
 import ContactPage from "./components/ContactPage";
 import PrivateRouter from "./PrivateRoute";
+
+import { connectUrl } from "./settings.json";
 
 import "./main.scss";
 
 const App: React.FC = () => {
   const [isAuth, setIsAuth] = React.useState(false);
 
-  const logIn = (login: string, password: string) => {
-    console.log("loginCallback:void -> password", password);
-    console.log("loginCallback:void -> login", login);
+  const logIn = async (login: string, password: string) => {
+    const response = await fetch(`${connectUrl}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: login, password }),
+    });
+    const result = await response.json();
+    if (result.accessToken) {
+      setIsAuth(true);
+    }
   };
 
   return (
@@ -30,7 +46,17 @@ const App: React.FC = () => {
         <Route
           exact
           path="/"
-          render={() => <LoginPage loginCallback={logIn} />}
+          render={() =>
+            isAuth ? (
+              <Redirect
+                to={{
+                  pathname: "/contacts",
+                }}
+              />
+            ) : (
+              <LoginPage loginCallback={logIn} />
+            )
+          }
         />
         <PrivateRouter
           path="/contacts"
