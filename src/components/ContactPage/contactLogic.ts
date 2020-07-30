@@ -1,9 +1,22 @@
+import { v4 as uuid } from "uuid";
+
 import { ContactProps } from "../../contactType";
 
 import { connectUrl } from "../../settings.json";
 
 const cloneContacts = (contacts: ContactProps[]): ContactProps[] => {
   return contacts.map((contact) => ({ ...contact }));
+};
+
+const findContactIndex = (
+  contacts: ContactProps[],
+  id: string
+): number | null => {
+  const index = contacts.findIndex((contact) => contact.id === id);
+  if (index >= 0) {
+    return index;
+  }
+  return null;
 };
 
 const loadContacts = async (): Promise<ContactProps[]> => {
@@ -37,9 +50,10 @@ const filterContact = (
 
 const deleteContact = (
   contacts: ContactProps[],
-  index: number
+  id: string
 ): ContactProps[] => {
-  if (contacts.length >= index) {
+  const index = findContactIndex(contacts, id);
+  if (index) {
     const clonedContacts = cloneContacts(contacts);
     clonedContacts.splice(index, 1);
     return clonedContacts;
@@ -49,18 +63,24 @@ const deleteContact = (
 
 const updateContact = (
   contacts: ContactProps[],
-  record: ContactProps,
-  index: number
+  record: ContactProps
 ): ContactProps[] => {
-  const clonedContacts = cloneContacts(contacts);
-  clonedContacts[index] = record;
-  return clonedContacts;
+  const { id } = record;
+  const index = findContactIndex(contacts, id);
+  if (index) {
+    const clonedContacts = cloneContacts(contacts);
+    clonedContacts[index] = record;
+    return clonedContacts;
+  }
+  return contacts;
 };
 
 const addContact = (
   contacts: ContactProps[],
   contact: ContactProps
 ): ContactProps[] => {
+  // eslint-disable-next-line no-param-reassign
+  contact.id = uuid();
   const clonedContacts = cloneContacts(contacts);
   clonedContacts.push(contact);
   return clonedContacts;

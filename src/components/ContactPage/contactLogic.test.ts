@@ -12,17 +12,12 @@ const testData = contacts.slice(0, 3);
 
 describe("filter logic", () => {
   it("return array of contacts with filter value", () => {
-    const filter = "Olson";
+    const filter = "Tatyana";
     const result = filterContact(testData, filter);
     expect(result.length).toEqual(1);
   });
   it("return array of contacts with filter value, with uppercase symbols", () => {
-    const filter = "OLson";
-    const result = filterContact(testData, filter);
-    expect(result.length).toEqual(1);
-  });
-  it("return array of contacts with filter value, if find number", () => {
-    const filter = "272";
+    const filter = "TatYana";
     const result = filterContact(testData, filter);
     expect(result.length).toEqual(1);
   });
@@ -32,13 +27,14 @@ describe("delete logic", () => {
   it("return new array without element", () => {
     const index = 1;
     const element = testData[index];
-    const result = deleteContact(testData, index);
+    const { id } = element;
+    const result = deleteContact(testData, id);
     expect(result.length).toBeLessThan(testData.length);
     expect(result).not.toContain(element);
   });
-  it("return original array if index great than array length", () => {
-    const index = 10;
-    const result = deleteContact(testData, index);
+  it("return original array if record id doesn't exist", () => {
+    const id = "asdasd-dasdasd-asdasd";
+    const result = deleteContact(testData, id);
     expect(result).toEqual(testData);
   });
 });
@@ -49,16 +45,27 @@ describe("update record logic", () => {
     const editedRecord = { ...testData[index] };
     editedRecord.firstName = "Jhon";
     editedRecord.lastName = "Malkovich";
-    const result = updateContact(testData, editedRecord, index);
+    const result = updateContact(testData, editedRecord);
     expect(editedRecord).toEqual(result[index]);
     expect(testData[index]).not.toEqual(result[index]);
     expect(testData).not.toContain(result[index]);
+  });
+  it("return original array if id doesn't exist", () => {
+    const index = 1;
+    const editedRecord = { ...testData[index] };
+    editedRecord.id = "asdasd-asdasd-asdasd";
+    editedRecord.firstName = "Jhon";
+    editedRecord.lastName = "Malkovich";
+    const result = updateContact(testData, editedRecord);
+    expect(editedRecord).not.toEqual(result[index]);
+    expect(result).not.toContain(editedRecord);
   });
 });
 
 describe("add contact", () => {
   it("add new contact to end of contacts array", () => {
     const newContact: ContactProps = {
+      id: "",
       firstName: "John",
       lastName: "First",
       address: "Santa Carolina",
