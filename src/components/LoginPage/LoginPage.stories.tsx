@@ -7,4 +7,10 @@ export default {
   component: LoginPage,
 };
 
-export const Default: React.FC = () => <LoginPage />;
+export const Default: React.FC = () => {
+  const loginCallback = (login: string, password: string) => {
+    console.log("loginCallback:void -> password", password);
+    console.log("loginCallback:void -> login", login);
+  };
+  return <LoginPage loginCallback={loginCallback} />;
+};

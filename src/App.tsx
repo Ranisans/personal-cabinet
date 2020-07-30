@@ -8,6 +8,13 @@ import PrivateRouter from "./PrivateRoute";
 import "./main.scss";
 
 const App: React.FC = () => {
+  const [isAuth, setIsAuth] = React.useState(false);
+
+  const logIn = (login: string, password: string) => {
+    console.log("loginCallback:void -> password", password);
+    console.log("loginCallback:void -> login", login);
+  };
+
   return (
     <Router>
       <div className="App">
@@ -20,10 +27,14 @@ const App: React.FC = () => {
             Contacts
           </Link>
         </ul>
-        <Route exact path="/" component={LoginPage} />
+        <Route
+          exact
+          path="/"
+          render={() => <LoginPage loginCallback={logIn} />}
+        />
         <PrivateRouter
           path="/contacts"
-          isAuthenticated={false}
+          isAuthenticated={isAuth}
           Component={ContactPage}
         />
       </div>
