@@ -10,7 +10,7 @@ export interface VTProp {
   rowsData: ContactProps[];
   rowHeight: number;
   viewportHeight: number;
-  rowOperationCallback: (isEdit: boolean, index: number) => void;
+  rowOperationCallback: (isEdit: boolean, id: string) => void;
 }
 
 const VirtualTable: React.FC<VTProp> = ({
@@ -51,10 +51,9 @@ const VirtualTable: React.FC<VTProp> = ({
             transform: `translateY(${offsetY}px)`,
           }}
         >
-          {visibleRows.map((contactData, index) => (
+          {visibleRows.map((contactData) => (
             <ContactRow
               contactData={contactData}
-              index={startNode + index}
               callback={rowOperationCallback}
               key={`${contactData.firstName}-${contactData.lastName}`}
             />

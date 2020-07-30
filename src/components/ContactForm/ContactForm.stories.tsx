@@ -24,6 +24,7 @@ export const UpdateRecord: React.FC = () => {
   };
 
   const data: ContactProps = {
+    id: "sadf-sdf-sdfsdfsd",
     firstName: "Иван",
     lastName: "Рюрикович",
     address: "Хоромы",

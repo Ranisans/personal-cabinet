@@ -10,6 +10,7 @@ export default {
 
 export const Base: React.FC = () => {
   const data: ContactProps = {
+    id: "asd-asd-asdad",
     firstName: "Иван",
     lastName: "Рюрикович",
     address: "Хоромы",
@@ -17,12 +18,10 @@ export const Base: React.FC = () => {
     phone: "колокол",
   };
 
-  const rowIndex = 0;
-
-  const callback = (isEdit: boolean, index: number): void => {
+  const callback = (isEdit: boolean, id: string): void => {
     console.log(isEdit);
-    console.log(index);
+    console.log(id);
   };
 
-  return <ContactRow contactData={data} index={rowIndex} callback={callback} />;
+  return <ContactRow contactData={data} callback={callback} />;
 };

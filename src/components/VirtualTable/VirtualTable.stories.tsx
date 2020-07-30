@@ -13,9 +13,9 @@ export const Default: React.FC = () => {
   const rowHeight = 40;
   const viewportHeight = 500;
 
-  const rowOperationCallback = (isEdit: boolean, index: number): void => {
+  const rowOperationCallback = (isEdit: boolean, id: string): void => {
     console.log(isEdit);
-    console.log(index);
+    console.log(id);
   };
 
   return (

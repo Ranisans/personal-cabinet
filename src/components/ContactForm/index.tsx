@@ -28,8 +28,16 @@ const ContactForm: React.FC<CFProps> = ({ callback, contactData }: CFProps) => {
 
   const sendData = (e: React.FormEvent<HTMLButtonElement>): void => {
     if (firstName && lastName && address && email && phone) {
+      const id = contactData ? contactData.id : "";
       e.preventDefault();
-      callback({ firstName, lastName, address, email, phone });
+      callback({
+        id,
+        firstName,
+        lastName,
+        address,
+        email,
+        phone,
+      });
     }
   };
 

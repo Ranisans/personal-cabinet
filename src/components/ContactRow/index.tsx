@@ -6,20 +6,15 @@ import "./ContactRow.scss";
 
 export interface CRProps {
   contactData: ContactProps;
-  index: number;
-  callback: (isEdit: boolean, index: number) => void;
+  callback: (isEdit: boolean, id: string) => void;
 }
 
-const ContactRow: React.FC<CRProps> = ({
-  contactData,
-  index,
-  callback,
-}: CRProps) => {
+const ContactRow: React.FC<CRProps> = ({ contactData, callback }: CRProps) => {
   const deleteHandler = () => {
-    callback(false, index);
+    callback(false, contactData.id);
   };
   const editHandler = () => {
-    callback(true, index);
+    callback(true, contactData.id);
   };
 
   return (
