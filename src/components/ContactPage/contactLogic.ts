@@ -53,7 +53,7 @@ const deleteContact = (
   id: string
 ): ContactProps[] => {
   const index = findContactIndex(contacts, id);
-  if (index) {
+  if (index !== null) {
     const clonedContacts = cloneContacts(contacts);
     clonedContacts.splice(index, 1);
     return clonedContacts;
@@ -92,4 +92,5 @@ export {
   deleteContact,
   updateContact,
   addContact,
+  findContactIndex,
 };

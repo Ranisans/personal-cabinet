@@ -23,8 +23,7 @@ const ContactForm: React.FC<CFProps> = ({ callback, contactData }: CFProps) => {
       setEmail(contactData.email);
       setPhone(contactData.phone);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [contactData]);
 
   const sendData = (e: React.FormEvent<HTMLButtonElement>): void => {
     if (firstName && lastName && address && email && phone) {
