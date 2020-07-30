@@ -1,4 +1,5 @@
 import {
+  loadContacts,
   filterContact,
   deleteContact,
   updateContact,
@@ -9,6 +10,14 @@ import { contacts } from "../../../db.json";
 import { ContactProps } from "../../contactType";
 
 const testData = contacts.slice(0, 3);
+
+describe("load content", () => {
+  it("load contact data without error", async () => {
+    const result = await loadContacts();
+    expect(result.length).toBeGreaterThan(0);
+    expect(result[0].firstName).toEqual("Kaleigh");
+  });
+});
 
 describe("filter logic", () => {
   it("return array of contacts with filter value", () => {

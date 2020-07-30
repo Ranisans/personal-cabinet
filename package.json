@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "server": "json-server-auth db.json --port 3001",
     "format": "prettier --write src/**/*.ts{,x}",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --fix",
     "eject": "react-scripts eject",
@@ -59,6 +60,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
+    "json-server": "^0.16.1",
+    "json-server-auth": "^2.0.2",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5"
   }
