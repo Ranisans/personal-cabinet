@@ -2,7 +2,7 @@ import React from "react";
 
 import VirtualTable from ".";
 
-import { contacts } from "../../db.json";
+import { contacts } from "../../../db.json";
 
 export default {
   title: "Virtual Table",

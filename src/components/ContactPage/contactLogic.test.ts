@@ -5,7 +5,7 @@ import {
   addContact,
 } from "./contactLogic";
 
-import { contacts } from "../../db.json";
+import { contacts } from "../../../db.json";
 import { ContactProps } from "../../contactType";
 
 const testData = contacts.slice(0, 3);
