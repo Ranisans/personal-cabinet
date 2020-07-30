@@ -1,24 +1,34 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const App: React.FC = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+import LoginPage from "./components/LoginPage";
+import ContactPage from "./components/ContactPage";
+import PrivateRouter from "./PrivateRoute";
+
+import "./main.scss";
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="App">
+        <h1>Personal Cabinet</h1>
+        <ul className="navbar">
+          <Link to="/" className="navbar-element">
+            Main
+          </Link>
+          <Link to="/contacts" className="navbar-element">
+            Contacts
+          </Link>
+        </ul>
+        <Route exact path="/" component={LoginPage} />
+        <PrivateRouter
+          path="/contacts"
+          isAuthenticated={false}
+          Component={ContactPage}
+        />
+      </div>
+    </Router>
+  );
+};
 
 export default App;
