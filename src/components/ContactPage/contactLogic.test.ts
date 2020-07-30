@@ -1,6 +1,12 @@
-import { filterContact, deleteContact, updateContact } from "./contactLogic";
+import {
+  filterContact,
+  deleteContact,
+  updateContact,
+  addContact,
+} from "./contactLogic";
 
 import { contacts } from "../../db.json";
+import { ContactProps } from "../../contactType";
 
 const testData = contacts.slice(0, 3);
 
@@ -47,5 +53,20 @@ describe("update record logic", () => {
     expect(editedRecord).toEqual(result[index]);
     expect(testData[index]).not.toEqual(result[index]);
     expect(testData).not.toContain(result[index]);
+  });
+});
+
+describe("add contact", () => {
+  it("add new contact to end of contacts array", () => {
+    const newContact: ContactProps = {
+      firstName: "John",
+      lastName: "First",
+      address: "Santa Carolina",
+      email: "",
+      phone: "",
+    };
+    const result = addContact(testData, newContact);
+    expect(result[result.length - 1]).toEqual(newContact);
+    expect(testData.length).toBeLessThan(result.length);
   });
 });

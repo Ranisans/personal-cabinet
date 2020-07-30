@@ -57,4 +57,19 @@ const updateContact = (
   return clonedContacts;
 };
 
-export { loadContacts, filterContact, deleteContact, updateContact };
+const addContact = (
+  contacts: ContactProps[],
+  contact: ContactProps
+): ContactProps[] => {
+  const clonedContacts = cloneContacts(contacts);
+  clonedContacts.push(contact);
+  return clonedContacts;
+};
+
+export {
+  loadContacts,
+  filterContact,
+  deleteContact,
+  updateContact,
+  addContact,
+};
