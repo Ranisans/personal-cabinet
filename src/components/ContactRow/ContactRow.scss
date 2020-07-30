@@ -18,6 +18,9 @@
   &-element {
     border-right: 1px solid gray;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   &-element:nth-child(5) {
     border-right: none;
@@ -49,7 +52,7 @@
     outline: none;
     background-color: #b9b8b8;
     opacity: 0;
-    transition: opacity cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.8s ;
+    transition: opacity ease-in 0.5s ;
   }
   &-delete {
     right: 0;
