@@ -38,7 +38,7 @@ const LoginPage: React.FC<LPProps> = ({ loginCallback }: LPProps) => {
           isPassword
           callback={setPassword}
         />
-        <button onClick={submit} type="submit">
+        <button onClick={submit} type="submit" className="login_page-submit">
           LogIn
         </button>
       </form>
