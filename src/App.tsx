@@ -2,9 +2,11 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
+  NavLink,
   Redirect,
 } from "react-router-dom";
+
+import "./App.scss";
 
 import LoginPage from "./components/LoginPage";
 import ContactPage from "./components/ContactPage";
@@ -36,12 +38,21 @@ const App: React.FC = () => {
       <div className="App">
         <h1>Personal Cabinet</h1>
         <ul className="navbar">
-          <Link to="/" className="navbar-element">
+          <NavLink
+            exact
+            to="/"
+            className="navbar-element"
+            activeClassName="navbar-element--active"
+          >
             Main
-          </Link>
-          <Link to="/contacts" className="navbar-element">
+          </NavLink>
+          <NavLink
+            to="/contacts"
+            className="navbar-element"
+            activeClassName="navbar-element--active"
+          >
             Contacts
-          </Link>
+          </NavLink>
         </ul>
         <Route
           exact

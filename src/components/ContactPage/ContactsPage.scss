@@ -9,10 +9,10 @@
   height: 100%;
 
   &-container {
+    padding-top: 70px;
     position: relative;
 
-    width: fit-content;
-    min-width: 850px;
+    width: 850px;
     margin: 0 auto;
   }
   &-form_container {
@@ -36,6 +36,13 @@
     &--hidden {
       transform: translateY(-100%);
     }
+  }
+  &-add_contact {
+    width: 150px;
+    height: 35px;
+    margin-top: 10px;
+
+    border-radius: 8px;
   }
   &-error {
     position: absolute;

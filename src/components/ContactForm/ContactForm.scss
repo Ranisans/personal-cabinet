@@ -5,6 +5,7 @@
   margin: 0 auto;
   &-input_container {
     display: flex;
+    flex-wrap: wrap;
 
     label {
       font-size: 0.9rem;
@@ -12,8 +13,6 @@
       color: $textColor;
     }
     input {
-      height: 25px;
-
       font-size: 0.9rem;
 
       border-radius: 8px;

@@ -1,16 +1,17 @@
-@import "./assets/scss/variables";
-
 html, body {
   overflow: hidden;
 
   height: 100%;
   margin: 0;
+
+  font-family: "DejaVu Serif", sans-serif;
   font-size: 17px;
-  font-family: 'DejaVu Serif', sans-serif;
 }
 
-#root {
-  height: 100%;
+button {
+  outline: none;
+}
 
-  background-color: $backgroundColor;
+input {
+  outline: none;
 }

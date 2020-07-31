@@ -1,0 +1,44 @@
+@import "./assets/scss/variables";
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  overflow: hidden;
+
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+
+  background-color: $backgroundColor;
+}
+
+.App {
+  height: 100%;
+  padding-top: 70px;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &-element {
+    margin-left: 12px;
+
+    color: $labelColor;
+
+    text-decoration: none;
+
+    &--active {
+      color: $textColor;
+
+      text-decoration: underline;
+    }
+  }
+}
