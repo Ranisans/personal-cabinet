@@ -20,7 +20,6 @@ h1 {
 
 .App {
   height: 100%;
-  padding-top: 70px;
 }
 
 .navbar {
@@ -33,12 +32,43 @@ h1 {
 
     color: $labelColor;
 
+    cursor: pointer;
     text-decoration: none;
 
+    &:hover {
+      color: $textColor;
+    }
     &--active {
       color: $textColor;
 
       text-decoration: underline;
     }
+  }
+}
+
+.pop_up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  width: 240px;
+
+  margin: 0 auto;
+
+  transition: all ease-in 0.5s;
+  transform: translateY(0);
+  &--hidden {
+    transform: translateY(-55px);
+  }
+  &-message {
+    display: block;
+    color: #db9393;;
+    margin: 0;
+    padding: 15px 7px;
+
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #242424;
   }
 }

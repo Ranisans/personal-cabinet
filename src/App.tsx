@@ -18,6 +18,7 @@ import "./main.scss";
 
 const App: React.FC = () => {
   const [isAuth, setIsAuth] = React.useState(false);
+  const popUpRef = React.createRef<HTMLDivElement>();
 
   const logIn = async (login: string, password: string) => {
     const response = await fetch(`${connectUrl}/login`, {
@@ -30,6 +31,11 @@ const App: React.FC = () => {
     const result = await response.json();
     if (result.accessToken) {
       setIsAuth(true);
+    } else {
+      popUpRef.current?.classList.remove("pop_up--hidden");
+      setTimeout(() => {
+        popUpRef.current?.classList.add("pop_up--hidden");
+      }, 1500);
     }
   };
 
@@ -74,6 +80,9 @@ const App: React.FC = () => {
           isAuthenticated={isAuth}
           Component={ContactPage}
         />
+        <div className="pop_up pop_up--hidden" ref={popUpRef}>
+          <div className="pop_up-message">Wrong Login or Password</div>
+        </div>
       </div>
     </Router>
   );
